@@ -1,0 +1,40 @@
+header, main, footer {
+	margin-bottoms: 20px;
+
+}
+
+.full-width {
+	max-width: 768px;
+	margin: 0 auto;
+}
+
+aside.catalog {
+	width: 33%;
+}
+
+section.catalog {
+	width: 66%;
+}
+
+section.catalog {
+	margin-left: 33%;
+}
+
+#catalog div {
+	float: left;
+	width: 50%;
+}
+
+.utilities {
+	width: 33%;
+}
+
+.contacts {
+	float: left;
+	width: 66%;
+}
+
+.sitemap {
+	float: right;
+	width: 33%;
+}

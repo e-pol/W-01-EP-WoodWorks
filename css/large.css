@@ -1,3 +1,8 @@
+header, main, footer {
+	margin-bottoms: 20px;
+
+}
+
 .full-width {
 	max-width: 960px;
 	margin: 0 auto;
@@ -18,4 +23,18 @@ section.catalog {
 #catalog div {
 	float: left;
 	width: 33%;
+}
+
+.utilities {
+	width: 25%;
+}
+
+.contacts {
+	float: left;
+	width: 50%;
+}
+
+.sitemap {
+	float: right;
+	width: 25%;
 }
