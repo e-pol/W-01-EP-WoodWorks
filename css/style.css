@@ -1,0 +1,67 @@
+* {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: lightyellow;
+	margin: auto;
+}
+
+header, main, footer {
+	overflow: hidden;
+}
+
+header {
+	background-color: darkgoldenrod;
+}
+
+main {
+}
+
+footer {
+	background-color: saddlebrown;
+}
+
+h1 {
+	font-size: 3.0em;
+	float: left;
+}
+
+h2 {
+	font-size: 2.0em;
+}
+
+h3 {
+	font-size: 1.5em;
+}
+
+h4 {
+	font-size: 1.2em;
+}
+
+h5 {
+	font-size: 1.0em;
+	font-weight: bold;
+}
+
+/* navigation */
+
+a {
+	text-decoration: none;
+}
+
+.utilities li, nav li {
+	display: inline-block;
+}
+
+.utilities {
+	float: right;
+}
+
+aside.catalog {
+	float: left;
+}
+
+

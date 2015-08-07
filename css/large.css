@@ -1,0 +1,21 @@
+.full-width {
+	max-width: 960px;
+	margin: 0 auto;
+}
+
+aside.catalog {
+	width: 25%;
+}
+
+section.catalog {
+	width: 75%;
+}
+
+section.catalog {
+	margin-left: 25%;
+}
+
+#catalog div {
+	float: left;
+	width: 33%;
+}
