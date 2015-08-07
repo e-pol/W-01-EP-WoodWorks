@@ -10,6 +10,7 @@ body {
 }
 
 header, main, footer {
+	clear: both;
 	overflow: hidden;
 }
 
