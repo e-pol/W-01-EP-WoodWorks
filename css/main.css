@@ -1,7 +1,7 @@
 /* main css */
 @import 'reset.css'; /* reset default css settings*/
 @import 'style.css'; /* website css */
-@import 'x-large.css'; /* style for devices with extra large screen */
-@import 'large.css' (min-width: 769px) and (max-width: 1200px); /* base style for devices with large screen */
-@import 'medium.css' (min-width: 481px) and (max-width: 768px); /* style for devices with medium screen */
-@import 'small.css' (max-width: 480px); /* style for devices with small screen */
+@import 'x-large.css';
+/* @import 'large.css' (min-width: 769px) and (max-width: 1200px);
+@import 'medium.css' (min-width: 481px) and (max-width: 768px);
+@import 'small.css' (max-width: 480px); */
