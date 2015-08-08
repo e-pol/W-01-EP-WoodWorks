@@ -8,6 +8,14 @@ header, main, footer {
 	margin: 0 auto;
 }
 
+/* header */
+
+nav a {
+	margin-right: 35px;
+}
+
+/* catalog */
+
 aside.catalog {
 	width: 25%;
 }
@@ -25,9 +33,7 @@ section.catalog {
 	width: 33%;
 }
 
-.utilities {
-	width: 25%;
-}
+/* footer */
 
 .contacts {
 	float: left;

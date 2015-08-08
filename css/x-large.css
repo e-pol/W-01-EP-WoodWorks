@@ -1,0 +1,77 @@
+header, main, footer {
+	margin-bottom: 20px;
+
+}
+
+.full-width {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+h1 {
+	font-size: 2.0em;
+}
+
+h2 {
+	font-size: 1.5em;
+}
+
+h5 {
+	font-size: 1.0em;
+}
+
+/* logo */
+
+.logo div {
+	float: left;
+}
+
+.logo-symbol p:last-child {
+	font-family: 'Merriweather', serif;
+	font-weight: bold;
+}
+
+
+/* header */
+
+header {
+	height: 100px;
+}
+
+nav a {
+	margin-right: 55px;
+	font-size: 1.1em;
+	line-height: 1.1em;
+	font-weight: 400;
+}
+
+/* catalog */
+
+.catalog aside {
+	width: 25%;
+}
+
+.catalog section {
+	width: 75%;
+}
+
+.catalog section {
+	margin-left: 25%;
+}
+
+#catalog div {
+	float: left;
+	width: 33%;
+}
+
+/* footer */
+
+.contacts {
+	float: left;
+	width: 50%;
+}
+
+.sitemap {
+	float: right;
+	width: 25%;
+}
