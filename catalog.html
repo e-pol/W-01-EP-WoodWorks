@@ -49,27 +49,48 @@
 					<form action="filter.php" method="get">
 						<fieldset id="types">
 							<legend>Тип</legend>
-							<input type="checkbox">Дом
-							<input type="checkbox">Баня
-							<input type="checkbox">Прочее
+							<input type="checkbox" checked="checked">Дом
+							<input type="checkbox" checked="checked">Баня
+							<input type="checkbox" checked="checked">Прочее
 						</fieldset>
 						<fieldset id="area">
 							<legend>Площадь</legend>
-							От<input type="number"><br>
-							До<input type="number">
+							От <input type="number"><br>
+							До <input type="number">
 						</fieldset>
 						<fieldset id="floors">
 							<legend>Этажи</legend>
-							<input type="checkbox">1
-							<input type="checkbox">2
+							<input type="checkbox" checked="checked">1
+							<input type="checkbox" checked="checked">2
+							<input type="checkbox" checked="checked">Цокольный
 						</fieldset>
 						<fieldset id="bedrooms">
 							<legend>Спальни</legend>
-							<input type="checkbox">1
-							<input type="checkbox">2
-							<input type="checkbox">3
-							<input type="checkbox">4
+							<input type="checkbox" checked="checked">1
+							<input type="checkbox" checked="checked">2
+							<input type="checkbox" checked="checked">3
+							<input type="checkbox" checked="checked">4
 						</fieldset>
+						<fieldset id="design-status">
+							<legend>Проект</legend>
+							<input type="checkbox" checked="checked">Эскизный<br>
+							<input type="checkbox" checked="checked">Архитектурный<br>
+							<input type="checkbox" checked="checked">Рабочий
+						</fieldset>
+						<fieldset id="project-status">
+							<legend>Объект</legend>
+							<input type="checkbox" checked="checked">Построен<br>
+							<input type="checkbox" checked="checked">Строится<br>
+							<input type="checkbox" checked="checked">Не реализован
+						</fieldset>
+						<fieldset id="material">
+							<legend>Материал</legend>
+							<input type="checkbox" checked="checked">Профилированный брус<br>
+							<input type="checkbox" checked="checked">Лафет<br>
+							<input type="checkbox" checked="checked">Брус обрезной<br>
+							<input type="checkbox" checked="checked">Каркас
+						</fieldset>
+						<input class="submit" type="submit" value="Применить">
 					</form>
 				</div>
 			</aside>
@@ -82,7 +103,8 @@
 								<figcaption>
 									<h2>Проект 15.001</h2>
 									<p>Площадь</p><p>100м<sup>2</sup></p>
-									<p>Статус</p><p>Построен 2015-Iкв</p>
+									<p>Проект</p><p>Рабочий</p>
+									<p>Объект</p><p>Построен 2015-Iкв</p>
 								</figcaption>
 							</figure>
 						</a>
@@ -94,7 +116,8 @@
 								<figcaption>
 									<h2>Проект 15.002</h2>
 									<p>Площадь</p><p>150м<sup>2</sup></p>
-									<p>Статус</p><p>Построен 2015-IIкв</p>
+									<p>Проект</p><p>Рабочий</p>
+									<p>Объект</p><p>Построен 2015-IIкв</p>
 								</figcaption>
 							</figure>
 						</a>
@@ -106,7 +129,8 @@
 								<figcaption>
 									<h2>Проект 15.003</h2>
 									<p>Площадь</p><p>200м<sup>2</sup></p>
-									<p>Статус</p><p>2015-IIIкв</p>
+									<p>Проект</p><p>Рабочий</p>
+									<p>Объект</p><p>2015-IIIкв</p>
 								</figcaption>
 							</figure>
 						</a>
@@ -118,7 +142,8 @@
 								<figcaption>
 									<h2>Проект 15.001</h2>
 									<p>Площадь</p><p>100м<sup>2</sup></p>
-									<p>Статус</p><p>2015-Iкв</p>
+									<p>Проект</p><p>Рабочий</p>
+									<p>Объект</p><p>2015-Iкв</p>
 								</figcaption>
 							</figure>
 						</a>
@@ -130,7 +155,8 @@
 								<figcaption>
 									<h2>Проект 15.002</h2>
 									<p>Площадь</p><p>150м<sup>2</sup></p>
-									<p>Статус</p><p>В разработке</p>
+									<p>Проект</p><p>Рабочий</p>
+									<p>Объект</p><p>В разработке</p>
 								</figcaption>
 							</figure>
 						</a>
@@ -142,7 +168,8 @@
 								<figcaption>
 									<h2>Проект 15.003</h2>
 									<p>Площадь</p><p>200м<sup>2</sup></p>
-									<p>Статус</p><p>Строится</p>
+									<p>Проект</p><p>Рабочий</p>
+									<p>Объект</p><p>Строится</p>
 								</figcaption>
 							</figure>
 						</a>
@@ -156,17 +183,18 @@
 		<div class="full-width">
 			<section class="contacts">
 				<h5>Контакты</h5>
-				<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam  egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+				<p>Россия<br>г.Санкт-Петербург, Приморский р-н</p>
+				<p>epwoodworks@gmail.com</p>
 			</section>
 			<section class="sitemap">
 				<h5>Карта сайта</h5>
 				<ul>
 					<div>
 						<li><a href="index.html">Главная</a></li>
-						<li><a href="#">Каталог</a></li>
-						<li><a href="#">Акции</a></li>
+						<li><a href="#">Проекты</a></li>
+						<li><a href="#">Стоимость</a></li>
 					</div>
-					<li><a href="#">Стоимость</a></li>
+					<li><a href="#">Акции</a></li>
 					<li><a href="#">F.A.Q.</a></li>
 					<li><a href="#">Контакты</a></li>
 				</ul>

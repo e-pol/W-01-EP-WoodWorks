@@ -17,17 +17,21 @@ main, footer, nav {
 }
 
 footer {
-	background-color: #8B4513;
+	background-color: #331A00;
 }
 
 
 h1 {
 	font-size: 2.0em;
 	margin-left: -2px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #ddd;
+	color: #663300
 }
 
 h2 {
 	font-size: 1.5em;
+	color: #663300;
 }
 
 h5 {
@@ -118,25 +122,85 @@ nav a, .sitemap a, .utilities a {
 	width: 50%;
 }
 
+footer {
+	color: green;
+}
+
+footer h5 {
+	color: #996633;
+}
+
+.contacts p, .sitemap ul {
+	margin-top: 10px;
+}
+
+.sitemap h5 {
+	margin-left: -2px;
+}
+
 /* Catalog */
 
+#catalog {
+	padding-top: 24px;
+}
+
+#catalog > div {
+	padding-left: 30px;
+	margin-bottom: 20px;
+}
+
 #catalog img {
-	width: 90%;
+	width: 100%;
+}
+
+#catalog h2 {
+	margin-left: -1px;
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
+#catalog p {
+	margin-bottom: 5px;
 }
 
 #catalog p:nth-child(even) {
 	display: inline-block;
 	float: left;
-	width: 31.5%;
+	width: 35%;
 }
 
 #catalog p:nth-child(odd) {
 	color: green;
 }
 
+/* catalog-filter */
+
 .catalog aside {
 	float: left;
 }
 
-/* catalog-filter */
+#filters form {
+	margin-top: 15px;
+}
 
+#filters fieldset {
+	border: 1px solid #ddd;
+	margin-right: 15px;
+	margin-bottom: 15px;
+	padding: 10px;
+	padding-bottom: 5px;
+}
+
+#filters legend {
+	font-size: 1.2em;
+	margin-bottom: 10px;
+	color: #996633;
+}
+
+#filters input {
+	display: inline-block;
+	margin-bottom: 10px;
+}
+.submit {
+	font-size: 1.2em;
+}
