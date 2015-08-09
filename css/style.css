@@ -20,6 +20,9 @@ footer {
 	background-color: #331A00;
 }
 
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Open Sans', sans-serif;
+}
 
 h1 {
 	font-size: 2.0em;
@@ -38,46 +41,9 @@ h5 {
 	font-size: 1.0em;
 }
 
-h1, h2, h3, h4, h5, h6 {
-	font-family: 'Open Sans', sans-serif;
-}
-
 a {
 	text-decoration: none;
 	color: 	#303030;
-}
-
-/* logo */
-
-.logo div {
-	margin-top: 25px;
-	margin-bottom: 25px;
-	float: left;
-}
-
-.logo-symbol {
-	padding-top: 5px;
-	padding-right: 5px;
-}
-
-.logo-symbol p:last-child, .logo-text span {
-	font-family: 'Merriweather', serif;
-	font-weight: bold;
-	color: #663300;
-	text-align: center;
-}
-
-.logo-text p:first-child {
-	font-size: 2.4em;
-}
-
-.logo-text span {
-	font-size: 0.9em;
-}
-
-.logo-text p:last-child {
-	margin-left: -23px;
-	font-size: 0.97em;
 }
 
 .utilities {
@@ -140,50 +106,49 @@ footer h5 {
 
 /* Catalog */
 
-#catalog {
+.catalog {
 	padding-top: 24px;
 }
 
-#catalog > div {
+.catalog > div {
 	padding-left: 30px;
 	margin-bottom: 20px;
 }
 
-#catalog img {
+.catalog img {
 	width: 100%;
 }
 
-#catalog h2 {
+.catalog h2 {
 	margin-left: -1px;
 	margin-top: 5px;
 	margin-bottom: 10px;
 }
 
-#catalog p {
+.catalog p {
 	margin-bottom: 5px;
 }
 
-#catalog p:nth-child(even) {
-	display: inline-block;
+.catalog p:nth-child(even) {
 	float: left;
 	width: 35%;
 }
 
-#catalog p:nth-child(odd) {
+.catalog p:nth-child(odd) {
 	color: green;
 }
 
 /* catalog-filter */
 
-.catalog aside {
+.filters {
 	float: left;
 }
 
-#filters form {
+.filters form {
 	margin-top: 15px;
 }
 
-#filters fieldset {
+.filters fieldset {
 	border: 1px solid #ddd;
 	margin-right: 15px;
 	margin-bottom: 15px;
@@ -191,16 +156,17 @@ footer h5 {
 	padding-bottom: 5px;
 }
 
-#filters legend {
+.filters legend {
 	font-size: 1.2em;
 	margin-bottom: 10px;
 	color: #996633;
 }
 
-#filters input {
+.filters input {
 	display: inline-block;
 	margin-bottom: 10px;
 }
+
 .submit {
 	font-size: 1.2em;
 }

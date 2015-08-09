@@ -1,5 +1,6 @@
 /* main css */
 @import 'reset.css'; /* reset default css settings*/
+@import 'logo.css';
 @import 'style.css'; /* website css */
 @import 'x-large.css';
 /* @import 'large.css' (min-width: 769px) and (max-width: 1200px);

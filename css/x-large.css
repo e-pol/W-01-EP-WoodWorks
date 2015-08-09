@@ -25,19 +25,16 @@ nav a {
 
 /* catalog */
 
-.catalog aside {
+.filters {
 	width: 25%;
 }
 
-.catalog section {
+.catalog {
 	width: 75%;
-}
-
-.catalog section {
 	margin-left: 25%;
 }
 
-#catalog div {
+.catalog > div {
 	float: left;
 	width: 33%;
 }
