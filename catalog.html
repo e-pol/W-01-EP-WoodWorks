@@ -12,23 +12,25 @@
 <body>
 	<header>
 		<div class="full-width">
-			<div class="logo">
-				<div class="logo-symbol">
-					<p>EP</p>
-					<p>W</p>
+			<a href="index.html">
+				<div class="logo">
+					<div class="logo-symbol">
+						<p>EP</p>
+						<p>W</p>
+					</div>
+					<div class="logo-text">
+						<p>EP<span>Wood</span>Works</p>
+						<p>проектирование деревянных домов</p>
+					</div>
 				</div>
-				<div class="logo-text">
-					<p>EP<span>Wood</span>Works</p>
-					<p>проектирование деревянных домов</p>
-				</div>
-			</div>
-			<section class="utilities">
-				<ul>
-					<li><a href="#">ВХОД |</a></li>
-					<li><a href="#">F.A.Q.|</a></li>
-					<li><a href="#">КОНТАКТЫ</a></li>
-				</ul>
-			</section>
+				<section class="utilities">
+					<ul>
+						<li><a href="#">ВХОД |</a></li>
+						<li><a href="#">F.A.Q.|</a></li>
+						<li><a href="#">КОНТАКТЫ</a></li>
+					</ul>
+				</section>
+			</a>
 		</div>
 			<nav>
 				<ul class="full-width">
@@ -37,13 +39,27 @@
 					<li><a href="#">Акции</a></li>
 				</ul>
 			</nav>
+			<p class="bread-crumbs full-width"><a href="index.html">Главная</a> > Проекты</p>
 	</header>
 
 	<main>
 		<div class="full-width catalog">
-			<h1>Каталог проектов</h1>
+			<h1>Проекты</h1>
 			<aside>
-				<div id="filters"></div>
+				<div id="filters">
+					<form action="" method="get">
+						<fieldset>
+							<legend>Тип</legend>
+							<input type="checkbox">Дом
+							<input type="checkbox">Баня
+							<input type="checkbox">Прочее
+						</fieldset>
+						<fieldset>
+							<legend>Площадь</legend>
+							От<input type="number"><br>
+							До<input type="number">
+						</fieldset>
+				</div>
 			</aside>
 			<section>
 				<div id="catalog">
@@ -86,7 +102,7 @@
 				<h5>Карта сайта</h5>
 				<ul>
 					<div>
-						<li><a href="#">ГЛАВНАЯ</a></li>
+						<li><a href="index.html">Главная</a></li>
 						<li><a href="#">КАТАЛОГ</a></li>
 						<li><a href="#">АКЦИИ</a></li>
 					</div>

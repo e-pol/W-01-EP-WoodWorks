@@ -1,31 +1,20 @@
-header, main, footer {
-	margin-bottom: 20px;
+main {
+	margin-top: 15px;
+	margin-bottom: 25px;
+}
 
+footer {
+	padding-top: 10px;
+	padding-bottom: 20px;
 }
 
 .full-width {
 	max-width: 1200px;
-	margin: 0 auto;
-}
-
-h1 {
-	font-size: 2.5em;
-}
-
-h2 {
-	font-size: 1.5em;
-}
-
-h5 {
-	font-size: 1.0em;
+	margin: auto;
 }
 
 
 /* header */
-
-header {
-	height: 100px;
-}
 
 nav a {
 	margin-right: 50px;
