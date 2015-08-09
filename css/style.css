@@ -113,7 +113,7 @@ nav a, .sitemap a, .utilities a {
 	font-size: 0.85em;
 }
 
-.sitemap div:first-child {
+.sitemap div {
 	float: left;
 	width: 50%;
 }
@@ -124,6 +124,19 @@ nav a, .sitemap a, .utilities a {
 	width: 90%;
 }
 
+#catalog p:nth-child(even) {
+	display: inline-block;
+	float: left;
+	width: 31.5%;
+}
+
+#catalog p:nth-child(odd) {
+	color: green;
+}
+
 .catalog aside {
 	float: left;
 }
+
+/* catalog-filter */
+

@@ -4,9 +4,8 @@
 	<meta charset="UTF-8">
 	<title>Каталог проектов</title>
 	<link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Noto+Sans&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans&amp;subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Noto+Sans&amp;subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
@@ -23,23 +22,23 @@
 						<p>проектирование деревянных домов</p>
 					</div>
 				</div>
-				<section class="utilities">
-					<ul>
-						<li><a href="#">ВХОД |</a></li>
-						<li><a href="#">F.A.Q.|</a></li>
-						<li><a href="#">КОНТАКТЫ</a></li>
-					</ul>
-				</section>
 			</a>
-		</div>
-			<nav>
-				<ul class="full-width">
-					<li><a href="#">Проекты</a></li>
-					<li><a href="#">Стоимость</a></li>
-					<li><a href="#">Акции</a></li>
+			<div class="utilities">
+				<ul>
+					<li><a href="#">Вход</a> |</li>
+					<li><a href="#">F.A.Q.</a> |</li>
+					<li><a href="#">Контакты</a></li>
 				</ul>
-			</nav>
-			<p class="bread-crumbs full-width"><a href="index.html">Главная</a> > Проекты</p>
+			</div>
+		</div>
+		<nav>
+			<ul class="full-width">
+				<li><a href="#">Проекты</a></li>
+				<li><a href="#">Стоимость</a></li>
+				<li><a href="#">Акции</a></li>
+			</ul>
+		</nav>
+		<p class="bread-crumbs full-width"><a href="index.html">Главная</a> > Проекты</p>
 	</header>
 
 	<main>
@@ -47,45 +46,106 @@
 			<h1>Проекты</h1>
 			<aside>
 				<div id="filters">
-					<form action="" method="get">
-						<fieldset>
+					<form action="filter.php" method="get">
+						<fieldset id="types">
 							<legend>Тип</legend>
 							<input type="checkbox">Дом
 							<input type="checkbox">Баня
 							<input type="checkbox">Прочее
 						</fieldset>
-						<fieldset>
+						<fieldset id="area">
 							<legend>Площадь</legend>
 							От<input type="number"><br>
 							До<input type="number">
 						</fieldset>
+						<fieldset id="floors">
+							<legend>Этажи</legend>
+							<input type="checkbox">1
+							<input type="checkbox">2
+						</fieldset>
+						<fieldset id="bedrooms">
+							<legend>Спальни</legend>
+							<input type="checkbox">1
+							<input type="checkbox">2
+							<input type="checkbox">3
+							<input type="checkbox">4
+						</fieldset>
+					</form>
 				</div>
 			</aside>
 			<section>
 				<div id="catalog">
-					<div id="">
-						<img src="houseplans/15-001/thumb.jpg" alt="">
-						<h2>Проект 15.001</h2>
+					<div>
+						<a href="#">
+							<figure>
+								<img src="houseplans/15-001/thumb.jpg" alt="">
+								<figcaption>
+									<h2>Проект 15.001</h2>
+									<p>Площадь</p><p>100м<sup>2</sup></p>
+									<p>Статус</p><p>Построен 2015-Iкв</p>
+								</figcaption>
+							</figure>
+						</a>
 					</div>
-					<div id="">
-						<img src="houseplans/15-002/thumb.jpg" alt="">
-						<h2>Проект 15.002</h2>
+					<div>
+						<a href="#">
+							<figure>
+								<img src="houseplans/15-002/thumb.jpg" alt="">
+								<figcaption>
+									<h2>Проект 15.002</h2>
+									<p>Площадь</p><p>150м<sup>2</sup></p>
+									<p>Статус</p><p>Построен 2015-IIкв</p>
+								</figcaption>
+							</figure>
+						</a>
 					</div>
-					<div id="">
-						<img src="houseplans/15-003/thumb.jpg" alt="">
-						<h2>Проект 15.003</h2>
+					<div>
+						<a href="#">
+							<figure>
+								<img src="houseplans/15-003/thumb.jpg" alt="">
+								<figcaption>
+									<h2>Проект 15.003</h2>
+									<p>Площадь</p><p>200м<sup>2</sup></p>
+									<p>Статус</p><p>2015-IIIкв</p>
+								</figcaption>
+							</figure>
+						</a>
 					</div>
-					<div id="">
-						<img src="houseplans/15-001/thumb.jpg" alt="">
-						<h2>Проект 15.001</h2>
+					<div>
+						<a href="#">
+							<figure>
+								<img src="houseplans/15-001/thumb.jpg" alt="">
+								<figcaption>
+									<h2>Проект 15.001</h2>
+									<p>Площадь</p><p>100м<sup>2</sup></p>
+									<p>Статус</p><p>2015-Iкв</p>
+								</figcaption>
+							</figure>
+						</a>
 					</div>
-					<div id="">
-						<img src="houseplans/15-002/thumb.jpg" alt="">
-						<h2>Проект 15.002</h2>
+					<div>
+						<a href="#">
+							<figure>
+								<img src="houseplans/15-002/thumb.jpg" alt="">
+								<figcaption>
+									<h2>Проект 15.002</h2>
+									<p>Площадь</p><p>150м<sup>2</sup></p>
+									<p>Статус</p><p>В разработке</p>
+								</figcaption>
+							</figure>
+						</a>
 					</div>
-					<div id="">
-						<img src="houseplans/15-003/thumb.jpg" alt="">
-						<h2>Проект 15.003</h2>
+					<div>
+						<a href="#">
+							<figure>
+								<img src="houseplans/15-003/thumb.jpg" alt="">
+								<figcaption>
+									<h2>Проект 15.003</h2>
+									<p>Площадь</p><p>200м<sup>2</sup></p>
+									<p>Статус</p><p>Строится</p>
+								</figcaption>
+							</figure>
+						</a>
 					</div>
 				</div>
 			</section>
@@ -103,14 +163,12 @@
 				<ul>
 					<div>
 						<li><a href="index.html">Главная</a></li>
-						<li><a href="#">КАТАЛОГ</a></li>
-						<li><a href="#">АКЦИИ</a></li>
+						<li><a href="#">Каталог</a></li>
+						<li><a href="#">Акции</a></li>
 					</div>
-					<div>
-						<li><a href="#">СТОИМОСТЬ</a></li>
-						<li><a href="#">F.A.Q.</a></li>
-						<li><a href="#">КОНТАКТЫ</a></li>
-					</div>
+					<li><a href="#">Стоимость</a></li>
+					<li><a href="#">F.A.Q.</a></li>
+					<li><a href="#">Контакты</a></li>
 				</ul>
 			</section>
 		</div>
