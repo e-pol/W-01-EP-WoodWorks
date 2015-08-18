@@ -167,6 +167,10 @@ footer h5 {
 	margin-bottom: 10px;
 }
 
+.filters input:hover {
+	cursor: pointer;
+}
+
 .submit {
 	font-size: 1.2em;
 }

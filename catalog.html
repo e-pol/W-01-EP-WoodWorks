@@ -49,46 +49,46 @@
 					<form action="ctalog-filters.php" method="get">
 						<fieldset id="types">
 							<legend>Тип</legend>
-							<input type="checkbox" checked="checked">Дом
-							<input type="checkbox" checked="checked">Баня
-							<input type="checkbox" checked="checked">Прочее
+							<input id="type-house" type="checkbox" checked="checked" name="type" value="house">Дом
+							<input id="type-bath-house" type="checkbox" checked="checked" name="type" value="bath-house">Баня
+							<input id="type-other" type="checkbox" checked="checked" name="type" value="other-buildings">Прочее
 						</fieldset>
 						<fieldset id="area">
 							<legend>Площадь</legend>
-							От <input type="number"><br>
-							До <input type="number">
+							От <input id="area-min" type="number" name="area-min" value="0"><br>
+							До <input id="area-max" type="number" name="area-max" value="300">
 						</fieldset>
 						<fieldset id="floors">
 							<legend>Этажи</legend>
-							<input type="checkbox" checked="checked">1
-							<input type="checkbox" checked="checked">2
-							<input type="checkbox" checked="checked">Цокольный
+							<input id="floors-1" type="checkbox" checked="checked" name="floors" value="1">1
+							<input id="floors-2" type="checkbox" checked="checked" name="floors" value="2">2
+							<input id="floors-socle" type="checkbox" checked="checked" name="floors" value="socle">Цокольный
 						</fieldset>
 						<fieldset id="bedrooms">
 							<legend>Спальни</legend>
-							<input type="checkbox" checked="checked">1
-							<input type="checkbox" checked="checked">2
-							<input type="checkbox" checked="checked">3
-							<input type="checkbox" checked="checked">4
+							<input id="bedrooms-1" type="checkbox" checked="checked" name="bedrooms" value="1">1
+							<input id="bedrooms-2" type="checkbox" checked="checked">2
+							<input id="bedrooms-3" type="checkbox" checked="checked">3
+							<input id="bedrooms-4" type="checkbox" checked="checked">4
 						</fieldset>
 						<fieldset id="design-status">
 							<legend>Проект</legend>
-							<input type="checkbox" checked="checked">Эскизный<br>
-							<input type="checkbox" checked="checked">Архитектурный<br>
-							<input type="checkbox" checked="checked">Рабочий
+							<input id="stage-schematic-design" type="checkbox" checked="checked">Эскизный<br>
+							<input id="stage-design-development" type="checkbox" checked="checked">Архитектурный<br>
+							<input id="stage-construction-documents" type="checkbox" checked="checked">Рабочий
 						</fieldset>
 						<fieldset id="project-status">
 							<legend>Объект</legend>
-							<input type="checkbox" checked="checked">Построен<br>
-							<input type="checkbox" checked="checked">Строится<br>
-							<input type="checkbox" checked="checked">Не реализован
+							<input id="status-built" type="checkbox" checked="checked">Построен<br>
+							<input id="status-under-construction" type="checkbox" checked="checked">Строится<br>
+							<input id="status-not-realised" type="checkbox" checked="checked">Не реализован
 						</fieldset>
 						<fieldset id="material">
 							<legend>Материал</legend>
-							<input type="checkbox" checked="checked">Профилированный брус<br>
-							<input type="checkbox" checked="checked">Лафет<br>
-							<input type="checkbox" checked="checked">Брус обрезной<br>
-							<input type="checkbox" checked="checked">Каркас
+							<input id="material-profiled-beams" type="checkbox" checked="checked">Профилированный брус<br>
+							<input id="material-handlaften" type="checkbox" checked="checked">Лафет<br>
+							<input id="material-four-sided" type="checkbox" checked="checked">Брус обрезной<br>
+							<input id="material-timber-framing" type="checkbox" checked="checked">Каркас
 						</fieldset>
 						<input class="submit" type="submit" value="Применить">
 					</form>
@@ -201,6 +201,7 @@
 			</section>
 		</div>
 	</footer>
+	<script src="http://code.jquery.com/jquery-2.0.3.min.js" type="text/javascript"></script>
 	<script type="text/javascript" src="js/catalog.js"></script>
 </body>
 </html>
