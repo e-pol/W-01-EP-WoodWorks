@@ -34,25 +34,77 @@ var main = function() {
 		this._node = document.getElementById(id);
 		this._items = items;
 		this._selection = items;
+		this._filtersByValue = {};
+		this._filtersByInterval = {};
+		this._filters = [];
 
 		console.log("Created: Object Catalog id=\"" + this._id + "\"");
 	}
 
-	Catalog.prototype.applyFilters = function(filters) {
-		console.log("Object Catalog id=\"" + this._id + "\" method: .applyFilters");
-		console.log("Received: " + filters);
-		// change selection
+	Catalog.prototype.filterByValue = function(filterId, property, value) {
+		console.log("Object Catalog id=\"" + this._id + "\" method: .filterByValue" + " property=" + property + " value=" + value);
+		
+		// define: add or remove filter;
+
+		if (this._filtersByValue[filterId]) {
+
+			// remove
+			
+			this._filtersByValue[filterId] = false;
+
+			this.removeFilter();
+
+		} else {
+			
+			// add
+
+			this._filtersByValue[filterId] = {};
+			this._filtersByValue[filterId][property] = value;
+			
+			this.addFilter(property, value);
+
+		}		
+	}
+
+	Catalog.prototype.addFilter = function(property, value) {
+		
+		var func = function(el) {
+			return el[property] === value;
+		}
+			this._filters.push(func);
+		}
+		
+	}
+
+	Catalog.prototype.removeFilter = function() {
+
 	}
 
 	Catalog.prototype.createCatalogHtml = function() {
 		console.log("Object Catalog id=\"" + this._id + "\" method: .createCatalogHtml");
-		// create from selection
+		
+		for (var filter in this._filtersByValue) {
+			console.log(this._filtersByValue[filter]);
+
+			for (var property in this._filtersByValue[filter]) {
+				console.log(property + ":" + this._filtersByValue[filter][property])
+			}
+		}
+
+		// make new catalog HTML code;
+		// delete old catalog HTML code;
+		// append new catalog;
+
 	}
 
-	Catalog.prototype.appendCatalogHtml = function() {
-		console.log("Object Catalog id=\"" + this._id + "\" method: .appendCatalogHtml");
-		// remove old
-		// append new
+	Catalog.prototype.modifyCatalogHtmls = function() {
+		console.log("Object Catalog id=\"" + this._id + "\" method: .modifyCatalogHtml");
+		// filter existing selection;
+		// remove obsolete nodes;
+	}
+
+	Catalog.prototype.filterByInterval = function() {
+
 	}
 
 
@@ -61,8 +113,7 @@ var main = function() {
 	function Filter(id, initialCatalog) {
 		this._id = id;
 		this._node = document.getElementById(id);
-		this._filters = [];
-		this._eventListeners = "";
+		this._filters = {};
 		this._catalogs = [];
 		this._catalogs[0] = initialCatalog;
 
@@ -71,18 +122,21 @@ var main = function() {
 
 	Filter.prototype.applyChanges = function() {
 		console.log("Object Filter id=\"" + this._id + "\" method: .applyChanges");
-
-		this._catalogs[0].applyFilters(this._filters);
+		var filtersArr = [];
+		this._catalogs[0].applyFilters(filtersArr);
 	}
 
-	Filter.prototype.setFilterPropertyValue = function(property, value) {
+	Filter.prototype.setFilterPropertyValue = function(filterId, property, value) {
 		console.log("Object Filter id=\"" + this._id + "\" method: .setFilterPropertyValue");
-		console.log("Received: property=" + property + " value=" + value);	
+		
+
+		
+
 		this.applyChanges();	
 	}
 
 
-	Filter.prototype.setFilterPropertyInterval = function(property, min, max) {
+	Filter.prototype.setFilterPropertyInterval = function(filterId, property, min, max) {
 		console.log("Object Filter id=\"" + this._id + "\" method: .setFilterPropertyInterval");
 		console.log("Received: property=" + property + " min=" + min + " max=" + max);
 		this.applyChanges();
@@ -90,11 +144,14 @@ var main = function() {
 
 	// init
 
+	// Add resetFilters();
+
 	var hpCatalog = new Catalog("catalog", houseplans);
 	var hpFilter = new Filter("filters", hpCatalog);
 
 
-	// filter
+	// Controller
+	// Remove node ids from controller calls of methods
 
 	var catalogFilter = document.getElementById("filters");
 
@@ -118,11 +175,11 @@ var main = function() {
 
 			};
 
-			hpFilter.setFilterPropertyInterval(firedElParentId, interval[0], interval[1]);
+			hpFilter.setFilterPropertyInterval(firedElId, firedElParentId, interval[0], interval[1]);
 			break;
 
 			default:
-			hpFilter.setFilterPropertyValue(firedElParentId, firedEl.value);
+			hpFilter.setFilterPropertyValue(firedElId, firedElParentId, firedEl.value);
 			break;
 
 		}

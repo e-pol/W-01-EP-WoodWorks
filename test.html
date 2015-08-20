@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+	function Catalog(id, items) {
+		this._id = id;
+		this._node = document.getElementById(id);
+		this._items = items;
+		this._selection = items;
+		this._filtersByValue = {};
+		this._filtersByInterval = {};
+		this._filters = [];
+
+		console.log("Created: Object Catalog id=\"" + this._id + "\"");
+	}
+
+	Catalog.prototype.addFilter = function(property, value) {
+		
+		function makeFilter(prop, val) {
+			return function(el) {
+				return el[prop] == val;
+			};
+		}
+
+		var func = makeFilter(property, value);		
+
+		/*var funcBody = "return el[" + property + "] == " + value + " ;" ;
+		var func = new Function ("el", funcBody);*/
+
+		// alert(func);
+
+		this._filters.push(func);
+		alert(this._filters[0]);		
+	}
+
+	var hpCatalog = new Catalog("HousePlans");
+
+	hpCatalog.addFilter("area", 100);
+
+	console.log(hpCatalog._filters[0]);
+
+	function makeFilter(prop, val) {
+			return function(el) {
+				return el[prop] == val;
+			};
+		}
+
+		var property = "area";
+		var value = 100;
+
+		var func = makeFilter(property, value);
+
+		alert(func);
+
+</script>
+
+</body>
+</html>
