@@ -27,75 +27,72 @@ var main = function() {
 		}
 	]
 
-	// catalog
+	var filters = {};
 
-	/*function Catalog(id, items) {
-		this._id = id;
-		this._node = document.getElementById(id);
-		this._items = items;
-		this._selection = items;
-
-		console.log("Created: Object Catalog id=\"" + this._id + "\"");
+	function createFilter(property, sign, value) {
+		var funcBody = "return el[" + property + "]" + sign + value;
+		var func = new Function("el", funcBody);
+		return func;
 	}
 
-	Catalog.prototype.applyFilters = function(filters) {
-		console.log("Object Catalog id=\"" + this._id + "\" method: .applyFilters");
-		console.log("Received: " + filters);
-		// change selection
-	}
-
-	Catalog.prototype.createCatalogHtml = function() {
-		console.log("Object Catalog id=\"" + this._id + "\" method: .createCatalogHtml");
-		// create from selection
-	}
-
-	Catalog.prototype.appendCatalogHtml = function() {
-		console.log("Object Catalog id=\"" + this._id + "\" method: .appendCatalogHtml");
-		// remove old
-		// append new
-	}*/
-
-	// init
-
-	/*var hpCatalog = new Catalog("catalog", houseplans);
-	var hpFilter = new Filter("filters", hpCatalog);*/
-
-
-	// filter
-
-	var catalogFilter = document.getElementById("filters");
-
-	catalogFilter.addEventListener("change", function (event) {
+	function setFilter(property, sign, value) {
+		var filterId = property + sign + value;
 		
-		var firedEl = event.target;
-		var firedElId = firedEl.id;
-		var firedElParent = firedEl.parentElement;
-		var firedElParentId = firedElParent.id;
-		
-		switch(firedElParentId) {
-			
-			case "area":
-			var childrenElems = firedElParent.children;
-			var interval = [];
+		if ( filters[filterId] ) {
+			filters[filterId] = false
+		} else {
+			filters[filterId] = createFilter(property, sign, value);
+		};
 
-			for (var i = 0; i < childrenElems.length; i++) {
-				if (childrenElems[i].tagName === "INPUT" && childrenElems[i].type === "number") {
-					interval.push(childrenElems[i].value);
-				};
+		var filtersCache = createFiltersCache(filters);
 
+		filtersCache.forEach( function(item, i) {
+			alert("filtersCache[" + i + "] == " + item);
+		});
+
+	}
+
+	function createFiltersCache(filters) {
+		var filtersCache = [];
+		for (var filter in filters) {
+			if (filters[filter]) {
+				filtersCache.push( filters[filter] );
 			};
+		};
+		return filtersCache;
+	}
 
-			// hpFilter.setFilterPropertyInterval(firedElParentId, interval[0], interval[1]);
-			break;
+	// testing
 
-			default:
-			// hpFilter.setFilterPropertyValue(firedElParentId, firedEl.value);
-			break;
+	var prop = "area";
+	var sig = "==";
+	var val = 100;
 
-		}
+	setFilter(prop, sig, val);
 
+	for (var filter in filters) {
+		alert(filters[filter]);
+	}
 
-	}, true);
+	var prop = "floors";
+	var sig = "==";
+	var val = 2;
+
+	setFilter(prop, sig, val);	
+
+	for (var filter in filters) {
+		alert(filters[filter]);
+	}
+
+	var prop = "area";
+	var sig = "==";
+	var val = 100;
+
+	setFilter(prop, sig, val);	
+
+	for (var filter in filters) {
+		alert(filters[filter]);
+	}
 
 };
 
