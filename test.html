@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	var arr = [];
+
+function addFilter(property, value) {
+	var funcBody = " return el[" + property + "] == " + value + ";" ;
+	var func = new Function("el", funcBody);
+	arr.push(func);
+}
+
+function addFilterClosure(property, value) {
+	alert(property + ":" + value);
+
+	var func = function(el) {
+		return el[property] == value;
+	}
+
+	arr.push(func);
+}
+
+var prop = "area";
+var val = 100;
+
+// addFilter(prop, val);
+addFilterClosure(prop, val);
+
+alert(arr[0]);
+
+prop = "floor";
+val = 2;
+
+// addFilter(prop, val);
+addFilterClosure(prop, val);
+
+alert(arr[0]);
+alert(arr[1]);
+
+</script>
+</body>
+</html>
