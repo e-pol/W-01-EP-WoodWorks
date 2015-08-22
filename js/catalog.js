@@ -6,24 +6,27 @@ var main = function() {
 	var houseplans = [
 		{
 			id: "hp-15-001",
+			type: "house",
 			area: 100,
 			floors: 1,
 			bedrooms: 3,
-			"design-status": "schematic"
+			"design-status": "schematic-design"
 		},
 		{
 			id: "hp-15-002",
+			type: "house",
 			area: 150,
 			floors: 2,
 			bedrooms: 4,
-			"design-status": "design"
+			"design-status": "design-development"
 		},
 		{
 			id: "hp-15-003",
+			type: "house",
 			area: 200,
 			floors: 3,
 			bedrooms: 2,
-			"design-status": "construction"
+			"design-status": "construction-documents"
 		}
 	];
 
@@ -34,6 +37,7 @@ var main = function() {
 	// filtering functions
 
 	function createFilter(property, sign, value) {
+		console.log(property + sign + value);
 		var funcBody = "return el[\"" + property + "\"]" + sign + value + ";" ;
 		var func = new Function("el", funcBody);
 		return func;
@@ -47,6 +51,17 @@ var main = function() {
 		} else {
 			filters[filterId] = createFilter(property, sign, value);
 		};
+	}
+
+	function renewCatalog(catalog, catalogFilters, containerId) {
+		var newFiltersCache = createFiltersCache(catalogFilters);
+		var newCatalog = getFilteredCatalog(catalog, newFiltersCache);
+		// var newCatalogHtml = createCatalogHtml(newCatalog);
+		// renewCatalogHtml(newCatalogHtml, containerId);
+		console.group();
+			console.table(newFiltersCache);
+			console.table(newCatalog);
+		console.groupEnd();
 	}
 
 	function createFiltersCache(filters) {
@@ -67,49 +82,206 @@ var main = function() {
     	});
 	};
 
-	// testing
+	// init
 
-	var prop = "area";
-	var sig = "!==";
-	var val = 100;
+	// disable php actions
+	// reset filters status, set all checked, set min and max area
 
-	setFilter(prop, sig, val);
-	var filtersCache01 = createFiltersCache(filters);
-	var catalog01 = getFilteredCatalog(houseplans, filtersCache01);
-	
-	console.group();
-		console.info(filters);
-		console.info(filtersCache01);
-		console.table(catalog01);
-	console.groupEnd();
+	// controller
 
-	var prop = "floors";
-	var sig = "!==";
-	var val = 2;
+	var catalogFilter = document.getElementById("filters");
+	catalogFilter.addEventListener("change", function(event) {
+		
+		var firedEl = event.target;
+		var firedId = firedEl.id;
+		var parent = firedEl.parentElement;
+		var parentId = parent.id;
+		var catalog = houseplans;
+		var catalogFilters = filters;
+		var containerId = "filters";
 
-	setFilter(prop, sig, val);
-	var filtersCache02 = createFiltersCache(filters);
-	var catalog02 = getFilteredCatalog(houseplans, filtersCache02);
+		switch(parentId) {
 
-	console.group();
-		console.info(filters);
-		console.info(filtersCache02);
-		console.table(catalog02);
-	console.groupEnd();
+			case "types":
 
-	var prop = "area";
-	var sig = "!==";
-	var val = 100;
+			var property = "type";
+			var sign = "!==";
 
-	setFilter(prop, sig, val);
-	var filtersCache03 = createFiltersCache(filters);
-	var catalog03 = getFilteredCatalog(houseplans, filtersCache03);
+			switch(firedId) {
+				
+				case "type-house":
+				setFilter(property, sign, "\"house\"");
+				renewCatalog(catalog, catalogFilters, containerId);
+				break;
 
-	console.group();
-		console.info(filters);
-		console.info(filtersCache03);
-		console.table(catalog03);
-	console.groupEnd();
+				case "type-bath-house":
+				setFilter(property, sign, "\"bath-house\"");
+				renewCatalog(catalog, catalogFilters, containerId);
+				break;
+
+				case "type-other":
+				setFilter(property, sign, "\"other\"");
+				renewCatalog(catalog, catalogFilters, containerId);
+				break;
+
+			};
+
+			break;
+
+			case "area":
+			break;
+
+			case "floors":
+
+			var property = "floors";
+			var sign = "!==";
+
+			switch(firedId) {
+				
+				case "floors-1":
+				setFilter(property, sign, 1);
+				renewCatalog(catalog, catalogFilters, containerId);
+				break;
+
+				case "floors-2":
+				setFilter(property, sign, 2);
+				renewCatalog(catalog, catalogFilters, containerId);
+				break;
+
+				case "floors-socle":
+				setFilter(property, sign, "\"socle\"");
+				renewCatalog(catalog, catalogFilters, containerId);
+				break;
+
+			};
+
+			break;
+
+			case "bedrooms":
+
+			var property = "bedrooms";
+			var sign = "!==";
+
+			switch(firedId) {
+				
+				case "bedrooms-1":
+				setFilter(property, sign, 1);
+				renewCatalog(catalog, catalogFilters, containerId);
+				break;
+
+				case "bedrooms-2":
+				setFilter(property, sign, 2);
+				renewCatalog(catalog, catalogFilters, containerId);
+				break;
+
+				case "bedrooms-3":
+				setFilter(property, sign, 3);
+				renewCatalog(catalog, catalogFilters, containerId);
+				break;
+
+				case "bedrooms-4":
+				setFilter(property, sign, 4);
+				renewCatalog(catalog, catalogFilters, containerId);
+				break;
+
+				case "bedrooms-5":
+				setFilter(property, sign, 5);
+				renewCatalog(catalog, catalogFilters, containerId);
+				break;
+
+			};
+
+			break;
+
+			case "design-status":
+
+			var property = "design-status";
+			var sign = "!==";
+
+			switch(firedId) {
+				
+				case "stage-schematic-design":
+				setFilter(property, sign, "\"schematic-design\"");
+				renewCatalog(catalog, catalogFilters, containerId);
+				break;
+
+				case "stage-design-development":
+				setFilter(property, sign, "\"design-development\"");
+				renewCatalog(catalog, catalogFilters, containerId);
+				break;
+
+				case "stage-construction-documents":
+				setFilter(property, sign, "\"construction-documents\"");
+				renewCatalog(catalog, catalogFilters, containerId);
+				break;
+
+			};
+
+			break;
+
+			case "project-status":
+
+			var property = "project-status";
+			var sign = "!==";
+
+			switch(firedId) {
+				
+				case "status-built":
+				setFilter(property, sign, "\"built\"");
+				renewCatalog(catalog, catalogFilters, containerId);
+				break;
+
+				case "status-under-construction":
+				setFilter(property, sign, "\"under-construction\"");
+				renewCatalog(catalog, catalogFilters, containerId);
+				break;
+
+				case "status-not-realised":
+				setFilter(property, sign, "\"not-realised\"");
+				renewCatalog(catalog, catalogFilters, containerId);
+				break;
+
+			};
+
+			break;
+
+			case "wall-material":
+
+			var property = "wall-material";
+			var sign = "!==";
+
+			switch(firedId) {
+				
+				case "material-profiled-beams":
+				setFilter(property, sign, "\"profiled-beams\"");
+				renewCatalog(catalog, catalogFilters, containerId);
+				break;
+
+				case "material-handlaften":
+				setFilter(property, sign, "\"handlaften\"");
+				renewCatalog(catalog, catalogFilters, containerId);
+				break;
+
+				case "material-four-sided":
+				setFilter(property, sign, "\"four-sided\"");
+				renewCatalog(catalog, catalogFilters, containerId);
+				break;
+
+				case "material-timber-framing":
+				setFilter(property, sign, "\"timber-framing\"");
+				renewCatalog(catalog, catalogFilters, containerId);
+				break;
+
+			};
+
+			break;
+
+			default:
+			break;
+
+		};
+
+	});
 
 };
 
