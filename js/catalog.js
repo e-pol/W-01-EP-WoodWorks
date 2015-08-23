@@ -6,6 +6,8 @@ var main = function() {
 	var houseplans = [
 		{
 			id: "hp-15-001",
+			title: "15.001",
+			imgUrl: "houseplans/15-001/thumb.jpg",
 			type: "house",
 			area: 100,
 			floors: 1,
@@ -14,6 +16,8 @@ var main = function() {
 		},
 		{
 			id: "hp-15-002",
+			title: "15.002",
+			imgUrl: "houseplans/15-002/thumb.jpg",
 			type: "house",
 			area: 150,
 			floors: 2,
@@ -22,6 +26,8 @@ var main = function() {
 		},
 		{
 			id: "hp-15-003",
+			title: "15.003",
+			imgUrl: "houseplans/15-003/thumb.jpg",
 			type: "house",
 			area: 200,
 			floors: 3,
@@ -34,10 +40,9 @@ var main = function() {
 
 	var filters = {};
 
-	// filtering functions
+	// functions
 
 	function createFilter(property, sign, value) {
-		console.log(property + sign + value);
 		var funcBody = "return el[\"" + property + "\"]" + sign + value + ";" ;
 		var func = new Function("el", funcBody);
 		return func;
@@ -56,12 +61,13 @@ var main = function() {
 	function renewCatalog(catalog, catalogFilters, containerId) {
 		var newFiltersCache = createFiltersCache(catalogFilters);
 		var newCatalog = getFilteredCatalog(catalog, newFiltersCache);
-		// var newCatalogHtml = createCatalogHtml(newCatalog);
-		// renewCatalogHtml(newCatalogHtml, containerId);
-		console.group();
+		var newCatalogHtml = createCatalogHtml(newCatalog, containerId);
+		renewCatalogHtml(newCatalogHtml, containerId);
+		
+		/*console.group();
 			console.table(newFiltersCache);
 			console.table(newCatalog);
-		console.groupEnd();
+		console.groupEnd();*/
 	}
 
 	function createFiltersCache(filters) {
@@ -80,25 +86,81 @@ var main = function() {
     			return filterInCache(el);
     		});
     	});
-	};
+	}
+
+	function createCatalogHtml(catalog, containerId) {
+		
+		var newCatalogEl = document.createElement("div");
+		newCatalogEl.id = containerId;
+
+		catalog.forEach( function(catalogItem) {
+
+			var itemContainerEl = document.createElement("div");
+			itemContainerEl.id = catalogItem.id;
+
+			var designStatus = "Рабочий";
+			var statusBuilt = "Построен 2015г.";
+
+			var aEl = document.createElement("a");
+			aEl.href = "#";
+
+			var figureEl = document.createElement("figure");
+
+			var imgEl = document.createElement("img");
+			imgEl.src = catalogItem.imgUrl;
+
+			var figcaptionEl = document.createElement("figcaption");
+
+			var figcaptionInnerHTML;
+			figcaptionInnerHTML = "<h2>Проект " + catalogItem.title + "</h2>";
+			figcaptionInnerHTML += "<p>Площадь</p><p>" + catalogItem.area + "м<sup>2</sup></p>";
+			figcaptionInnerHTML += "<p>Проект</p><p>" + designStatus + "</p>";
+			figcaptionInnerHTML += "<p>Построен</p><p>" + statusBuilt + "</p>";
+
+			figcaptionEl.innerHTML = figcaptionInnerHTML;
+
+			figureEl.appendChild(imgEl);
+			figureEl.appendChild(figcaptionEl);
+			aEl.appendChild(figureEl);
+			itemContainerEl.appendChild(aEl);
+			newCatalogEl.appendChild(itemContainerEl);
+
+		});
+
+		console.log(newCatalogEl);
+
+		return newCatalogEl;
+	}
+
+	function renewCatalogHtml(catalog, containerId) {
+		var oldCatalog = document.getElementById(containerId);
+		var catalogParent = oldCatalog.parentElement;
+		catalog.className = oldCatalog.className;
+		catalogParent.replaceChild(catalog, oldCatalog);
+	}
 
 	// init
+
+	var mainCatalog = houseplans;
+	var catalogContainerId = "catalog";
+	var initCatalogHtml = createCatalogHtml(mainCatalog, catalogContainerId);
+	renewCatalogHtml(initCatalogHtml, catalogContainerId);
 
 	// disable php actions
 	// reset filters status, set all checked, set min and max area
 
-	// controller
+	// filter controller
 
-	var catalogFilter = document.getElementById("filters");
-	catalogFilter.addEventListener("change", function(event) {
+	var catalogFilterController = document.getElementById("filters");
+	catalogFilterController.addEventListener("change", function(event) {
 		
 		var firedEl = event.target;
-		var firedId = firedEl.id;
+		var firedId = firedEl.id;0
 		var parent = firedEl.parentElement;
 		var parentId = parent.id;
 		var catalog = houseplans;
 		var catalogFilters = filters;
-		var containerId = "filters";
+		var containerId = "catalog";
 
 		switch(parentId) {
 
