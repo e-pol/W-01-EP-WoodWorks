@@ -58,6 +58,16 @@ var main = function() {
 		};
 	}
 
+	function setFilterInterval(property, minValue, maxValue) {
+		var filterIdMin = property + "Min";
+		var filterIdMax = property + "Max";
+
+		filters[filterIdMin] = createFilter(property, ">=", minValue);
+		filters[filterIdMax] = createFilter(property, "<=", maxValue);
+
+	}
+
+
 	function renewCatalog(catalog, catalogFilters, containerId) {
 		var newFiltersCache = createFiltersCache(catalogFilters);
 		var newCatalog = getFilteredCatalog(catalog, newFiltersCache);
@@ -155,7 +165,7 @@ var main = function() {
 	catalogFilterController.addEventListener("change", function(event) {
 		
 		var firedEl = event.target;
-		var firedId = firedEl.id;0
+		var firedId = firedEl.id;
 		var parent = firedEl.parentElement;
 		var parentId = parent.id;
 		var catalog = houseplans;
@@ -191,6 +201,14 @@ var main = function() {
 			break;
 
 			case "area":
+
+			var property = "area";
+			var minValue = document.getElementById("area-min").value;
+			var maxValue = document.getElementById("area-max").value;
+
+			setFilterInterval(property, minValue, maxValue);
+			renewCatalog(catalog, catalogFilters, containerId);
+			
 			break;
 
 			case "floors":
