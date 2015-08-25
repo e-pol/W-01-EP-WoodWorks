@@ -1,4 +1,5 @@
-var main = function() {
+;(function() {
+
 	"use strict";
 
 	// catalog
@@ -67,7 +68,6 @@ var main = function() {
 
 	}
 
-
 	function renewCatalog(catalog, catalogFilters, containerId) {
 		var newFiltersCache = createFiltersCache(catalogFilters);
 		var newCatalog = getFilteredCatalog(catalog, newFiltersCache);
@@ -87,6 +87,7 @@ var main = function() {
 				filtersCache.push( filters[filter] );
 			};
 		};
+
 		return filtersCache;
 	}
 
@@ -137,8 +138,6 @@ var main = function() {
 
 		});
 
-		console.log(newCatalogEl);
-
 		return newCatalogEl;
 	}
 
@@ -158,6 +157,7 @@ var main = function() {
 
 	// disable php actions
 	// reset filters status, set all checked, set min and max area
+	// check filters onReload of the page
 
 	// filter controller
 
@@ -363,6 +363,4 @@ var main = function() {
 
 	});
 
-};
-
-main();
+}());
