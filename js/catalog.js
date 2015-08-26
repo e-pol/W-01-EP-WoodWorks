@@ -65,7 +65,6 @@
 
 		filters[filterIdMin] = createFilter(property, ">=", minValue);
 		filters[filterIdMax] = createFilter(property, "<=", maxValue);
-
 	}
 
 	function renewCatalog(catalog, catalogFilters, containerId) {
