@@ -44,33 +44,42 @@
 	// functions
 
 	function createFilter(property, sign, value) {
+		
 		var funcBody = "return el[\"" + property + "\"]" + sign + value + ";" ;
 		var func = new Function("el", funcBody);
+		
 		return func;
+
 	}
 
 	function setFilter(property, sign, value) {
+		
 		var filterId = property + sign + value;
 		
 		if ( filters[filterId] ) {
-			filters[filterId] = false
+			filters[filterId] = false;
 		} else {
 			filters[filterId] = createFilter(property, sign, value);
-		};
+		}
+
 	}
 
 	function setFilterInterval(property, minValue, maxValue) {
+		
 		var filterIdMin = property + "Min";
 		var filterIdMax = property + "Max";
 
 		filters[filterIdMin] = createFilter(property, ">=", minValue);
 		filters[filterIdMax] = createFilter(property, "<=", maxValue);
+
 	}
 
 	function renewCatalog(catalog, catalogFilters, containerId) {
+
 		var newFiltersCache = createFiltersCache(catalogFilters);
 		var newCatalog = getFilteredCatalog(catalog, newFiltersCache);
 		var newCatalogHtml = createCatalogHtml(newCatalog, containerId);
+		
 		renewCatalogHtml(newCatalogHtml, containerId);
 		
 		/*console.group();
@@ -80,22 +89,27 @@
 	}
 
 	function createFiltersCache(filters) {
+		
 		var filtersCache = [];
+		
 		for (var filter in filters) {
 			if (filters[filter]) {
 				filtersCache.push( filters[filter] );
-			};
-		};
+			}
+		}
 
 		return filtersCache;
+
 	}
 
 	function getFilteredCatalog(catalog, filtersCache) {
+    	
     	return catalog.filter( function(el) {
     		return filtersCache.every( function(filterInCache) {
     			return filterInCache(el);
     		});
     	});
+
 	}
 
 	function createCatalogHtml(catalog, containerId) {
@@ -141,10 +155,13 @@
 	}
 
 	function renewCatalogHtml(catalog, containerId) {
+		
 		var oldCatalog = document.getElementById(containerId);
 		var catalogParent = oldCatalog.parentElement;
+
 		catalog.className = oldCatalog.className;
 		catalogParent.replaceChild(catalog, oldCatalog);
+
 	}
 
 	// init
@@ -152,6 +169,7 @@
 	var mainCatalog = houseplans;
 	var catalogContainerId = "catalog";
 	var initCatalogHtml = createCatalogHtml(mainCatalog, catalogContainerId);
+	
 	renewCatalogHtml(initCatalogHtml, catalogContainerId);
 
 	// disable php actions
@@ -161,6 +179,7 @@
 	// filter controller
 
 	var catalogFilterController = document.getElementById("filters");
+	
 	catalogFilterController.addEventListener("change", function(event) {
 		
 		var firedEl = event.target;
@@ -175,190 +194,172 @@
 
 			case "types":
 
-			var property = "type";
-			var sign = "!==";
+				switch(firedId) {
+					
+					case "type-house":
+					// setFilter(property, sign, "\"house\"");
+					setFilter('type', '!==', '"house"');
+					renewCatalog(catalog, catalogFilters, containerId);
+					break;
 
-			switch(firedId) {
-				
-				case "type-house":
-				setFilter(property, sign, "\"house\"");
-				renewCatalog(catalog, catalogFilters, containerId);
+					case "type-bath-house":
+					setFilter('type', '!==', '"bath-house"');
+					renewCatalog(catalog, catalogFilters, containerId);
+					break;
+
+					case "type-other":
+					setFilter('type', '!==', '"other"');
+					renewCatalog(catalog, catalogFilters, containerId);
+					break;
+
+				}
+
 				break;
 
-				case "type-bath-house":
-				setFilter(property, sign, "\"bath-house\"");
+				case "area":
+
+				var minValue = document.getElementById("area-min").value;
+				var maxValue = document.getElementById("area-max").value;
+
+				setFilterInterval('area', minValue, maxValue);
 				renewCatalog(catalog, catalogFilters, containerId);
-				break;
-
-				case "type-other":
-				setFilter(property, sign, "\"other\"");
-				renewCatalog(catalog, catalogFilters, containerId);
-				break;
-
-			};
-
-			break;
-
-			case "area":
-
-			var property = "area";
-			var minValue = document.getElementById("area-min").value;
-			var maxValue = document.getElementById("area-max").value;
-
-			setFilterInterval(property, minValue, maxValue);
-			renewCatalog(catalog, catalogFilters, containerId);
 			
 			break;
 
 			case "floors":
 
-			var property = "floors";
-			var sign = "!==";
+				switch(firedId) {
+					
+					case "floors-1":
+					setFilter('floors', '!==', 1);
+					renewCatalog(catalog, catalogFilters, containerId);
+					break;
 
-			switch(firedId) {
-				
-				case "floors-1":
-				setFilter(property, sign, 1);
-				renewCatalog(catalog, catalogFilters, containerId);
-				break;
+					case "floors-2":
+					setFilter('floors', '!==', 2);
+					renewCatalog(catalog, catalogFilters, containerId);
+					break;
 
-				case "floors-2":
-				setFilter(property, sign, 2);
-				renewCatalog(catalog, catalogFilters, containerId);
-				break;
+					case "floors-socle":
+					setFilter('floors', '!==', '"socle"');
+					renewCatalog(catalog, catalogFilters, containerId);
+					break;
 
-				case "floors-socle":
-				setFilter(property, sign, "\"socle\"");
-				renewCatalog(catalog, catalogFilters, containerId);
-				break;
-
-			};
+				}
 
 			break;
 
 			case "bedrooms":
 
-			var property = "bedrooms";
-			var sign = "!==";
+				switch(firedId) {
+					
+					case "bedrooms-1":
+					setFilter('bedrooms', '!==', 1);
+					renewCatalog(catalog, catalogFilters, containerId);
+					break;
 
-			switch(firedId) {
-				
-				case "bedrooms-1":
-				setFilter(property, sign, 1);
-				renewCatalog(catalog, catalogFilters, containerId);
-				break;
+					case "bedrooms-2":
+					setFilter('bedrooms', '!==', 2);
+					renewCatalog(catalog, catalogFilters, containerId);
+					break;
 
-				case "bedrooms-2":
-				setFilter(property, sign, 2);
-				renewCatalog(catalog, catalogFilters, containerId);
-				break;
+					case "bedrooms-3":
+					setFilter('bedrooms', '!==', 3);
+					renewCatalog(catalog, catalogFilters, containerId);
+					break;
 
-				case "bedrooms-3":
-				setFilter(property, sign, 3);
-				renewCatalog(catalog, catalogFilters, containerId);
-				break;
+					case "bedrooms-4":
+					setFilter('bedrooms', '!==', 4);
+					renewCatalog(catalog, catalogFilters, containerId);
+					break;
 
-				case "bedrooms-4":
-				setFilter(property, sign, 4);
-				renewCatalog(catalog, catalogFilters, containerId);
-				break;
+					case "bedrooms-5":
+					setFilter('bedrooms', '!==', 5);
+					renewCatalog(catalog, catalogFilters, containerId);
+					break;
 
-				case "bedrooms-5":
-				setFilter(property, sign, 5);
-				renewCatalog(catalog, catalogFilters, containerId);
-				break;
-
-			};
+				}
 
 			break;
 
 			case "design-status":
 
-			var property = "design-status";
-			var sign = "!==";
+				switch(firedId) {
+					
+					case "stage-schematic-design":
+					setFilter('design-status', '!==', '"schematic-design"');
+					renewCatalog(catalog, catalogFilters, containerId);
+					break;
 
-			switch(firedId) {
-				
-				case "stage-schematic-design":
-				setFilter(property, sign, "\"schematic-design\"");
-				renewCatalog(catalog, catalogFilters, containerId);
-				break;
+					case "stage-design-development":
+					setFilter('design-status', '!==', '"design-development"');
+					renewCatalog(catalog, catalogFilters, containerId);
+					break;
 
-				case "stage-design-development":
-				setFilter(property, sign, "\"design-development\"");
-				renewCatalog(catalog, catalogFilters, containerId);
-				break;
+					case "stage-construction-documents":
+					setFilter('design-status', '!==', '"construction-documents"');
+					renewCatalog(catalog, catalogFilters, containerId);
+					break;
 
-				case "stage-construction-documents":
-				setFilter(property, sign, "\"construction-documents\"");
-				renewCatalog(catalog, catalogFilters, containerId);
-				break;
-
-			};
+				}
 
 			break;
 
 			case "project-status":
 
-			var property = "project-status";
-			var sign = "!==";
+				switch(firedId) {
+					
+					case "status-built":
+					setFilter('project-status', '!==', '"built"');
+					renewCatalog(catalog, catalogFilters, containerId);
+					break;
 
-			switch(firedId) {
-				
-				case "status-built":
-				setFilter(property, sign, "\"built\"");
-				renewCatalog(catalog, catalogFilters, containerId);
-				break;
+					case "status-under-construction":
+					setFilter('project-status', '!==', '"under-construction"');
+					renewCatalog(catalog, catalogFilters, containerId);
+					break;
 
-				case "status-under-construction":
-				setFilter(property, sign, "\"under-construction\"");
-				renewCatalog(catalog, catalogFilters, containerId);
-				break;
+					case "status-not-realised":
+					setFilter('project-status', '!==', '"not-realised"');
+					renewCatalog(catalog, catalogFilters, containerId);
+					break;
 
-				case "status-not-realised":
-				setFilter(property, sign, "\"not-realised\"");
-				renewCatalog(catalog, catalogFilters, containerId);
-				break;
-
-			};
+				}
 
 			break;
 
 			case "wall-material":
 
-			var property = "wall-material";
-			var sign = "!==";
+				switch(firedId) {
+					
+					case "material-profiled-beams":
+					setFilter('wall-material', '!==', '"profiled-beams"');
+					renewCatalog(catalog, catalogFilters, containerId);
+					break;
 
-			switch(firedId) {
-				
-				case "material-profiled-beams":
-				setFilter(property, sign, "\"profiled-beams\"");
-				renewCatalog(catalog, catalogFilters, containerId);
-				break;
+					case "material-handlaften":
+					setFilter('wall-material', '!==', '"handlaften"');
+					renewCatalog(catalog, catalogFilters, containerId);
+					break;
 
-				case "material-handlaften":
-				setFilter(property, sign, "\"handlaften\"");
-				renewCatalog(catalog, catalogFilters, containerId);
-				break;
+					case "material-four-sided":
+					setFilter('wall-material', '!==', '"four-sided\"');
+					renewCatalog(catalog, catalogFilters, containerId);
+					break;
 
-				case "material-four-sided":
-				setFilter(property, sign, "\"four-sided\"");
-				renewCatalog(catalog, catalogFilters, containerId);
-				break;
+					case "material-timber-framing":
+					setFilter('wall-material', '!==', '"timber-framing"');
+					renewCatalog(catalog, catalogFilters, containerId);
+					break;
 
-				case "material-timber-framing":
-				setFilter(property, sign, "\"timber-framing\"");
-				renewCatalog(catalog, catalogFilters, containerId);
-				break;
-
-			};
+				}
 
 			break;
 
 			default:
 			break;
 
-		};
+		}
 
 	});
 
