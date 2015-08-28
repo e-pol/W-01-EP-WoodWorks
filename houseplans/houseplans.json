@@ -9,7 +9,9 @@
 			"area": 100,
 			"floors": 1,
 			"bedrooms": 3,
-			"design-status": "schematic-design"
+			"design-status": "schematic-design",
+			"project-status": "built",
+			"wall-material": "profiled-beams"
 		},
 		{
 			"id": "hp-15-002",
@@ -19,7 +21,9 @@
 			"area": 150,
 			"floors": 2,
 			"bedrooms": 4,
-			"design-status": "design-development"
+			"design-status": "design-development",
+			"project-status": "under-construction",
+			"wall-material": "handlaften"
 		},
 		{
 			"id": "hp-15-003",
@@ -29,7 +33,9 @@
 			"area": 200,
 			"floors": 3,
 			"bedrooms": 2,
-			"design-status": "construction-documents"
+			"design-status": "construction-documents",
+			"project-status": "not-realised",
+			"wall-material": "four-sided"
 		}
 	]
 }

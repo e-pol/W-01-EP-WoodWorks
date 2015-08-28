@@ -148,8 +148,7 @@
 	});
 
 	// disable php actions
-	// reset filters status, set all checked, set min and max area
-	// check filters onReload of the page
+	// chech filters status (if reload)
 
 	// filter controller
 
@@ -318,7 +317,7 @@
 					break;
 
 					case "material-four-sided":
-					setFilter('wall-material', '!==', '"four-sided\"');
+					setFilter('wall-material', '!==', '"four-sided"');
 					renewCatalog(catalog, catalogFilters, containerId);
 					break;
 
