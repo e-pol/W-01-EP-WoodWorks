@@ -2,41 +2,6 @@
 
 	"use strict";
 
-	// catalog
-
-	var houseplans = [
-		{
-			id: "hp-15-001",
-			title: "15.001",
-			imgUrl: "houseplans/15-001/thumb.jpg",
-			type: "house",
-			area: 100,
-			floors: 1,
-			bedrooms: 3,
-			"design-status": "schematic-design"
-		},
-		{
-			id: "hp-15-002",
-			title: "15.002",
-			imgUrl: "houseplans/15-002/thumb.jpg",
-			type: "house",
-			area: 150,
-			floors: 2,
-			bedrooms: 4,
-			"design-status": "design-development"
-		},
-		{
-			id: "hp-15-003",
-			title: "15.003",
-			imgUrl: "houseplans/15-003/thumb.jpg",
-			type: "house",
-			area: 200,
-			floors: 3,
-			bedrooms: 2,
-			"design-status": "construction-documents"
-		}
-	];
-
 	// filters container
 
 	var filters = {};
@@ -131,7 +96,7 @@
 			var figureEl = document.createElement("figure");
 
 			var imgEl = document.createElement("img");
-			imgEl.src = catalogItem.imgUrl;
+			imgEl.src = catalogItem.imagesUrl + "thumb.jpg";
 
 			var figcaptionEl = document.createElement("figcaption");
 
@@ -166,11 +131,21 @@
 
 	// init
 
-	var mainCatalog = houseplans;
-	var catalogContainerId = "catalog";
-	var initCatalogHtml = createCatalogHtml(mainCatalog, catalogContainerId);
+	var houseplans;
+
+	$.getJSON("houseplans/houseplans.json", function(catalog) {
+
+		houseplans = catalog.items
+		var mainCatalog = houseplans;
+		var catalogContainerId = "catalog";
+		var initCatalogHtml = createCatalogHtml(mainCatalog, catalogContainerId);
 	
-	renewCatalogHtml(initCatalogHtml, catalogContainerId);
+		renewCatalogHtml(initCatalogHtml, catalogContainerId);
+
+
+		// console.log(houseplans.items);
+
+	});
 
 	// disable php actions
 	// reset filters status, set all checked, set min and max area

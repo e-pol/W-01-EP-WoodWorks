@@ -1,0 +1,35 @@
+{
+	"title": "Houseplans",
+	"items": [
+		{
+			"id": "hp-15-001",
+			"title": "15.001",
+			"imagesUrl": "houseplans/15-001/",
+			"type": "house",
+			"area": 100,
+			"floors": 1,
+			"bedrooms": 3,
+			"design-status": "schematic-design"
+		},
+		{
+			"id": "hp-15-002",
+			"title": "15.002",
+			"imagesUrl": "houseplans/15-002/",
+			"type": "house",
+			"area": 150,
+			"floors": 2,
+			"bedrooms": 4,
+			"design-status": "design-development"
+		},
+		{
+			"id": "hp-15-003",
+			"title": "15.003",
+			"imagesUrl": "houseplans/15-003/",
+			"type": "house",
+			"area": 200,
+			"floors": 3,
+			"bedrooms": 2,
+			"design-status": "construction-documents"
+		}
+	]
+}
