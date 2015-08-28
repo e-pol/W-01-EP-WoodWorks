@@ -43,7 +43,132 @@
 
 	<main>
 		<div class="full-width">
-			<h1>Стоимость</h1>			
+			<h1>Стоимость</h1>
+			
+			<section>
+
+				<fieldset id="house-parameters">
+					<legend>
+						<h2>Параметры</h2>
+					</legend>
+					Площадь<input type="number" name="object-area"><br />
+					Этажи<input type="radio" name="object-floors" value="1">1
+					<input type="radio" name="object-floors" value="2">2
+					<input type="radio" name="object-floors" value="socle">2 эт + Цок.этаж
+				</fieldset>
+
+				<fieldset id="house-design">
+					<legend>
+						<h2>Проектирование</h2>
+					</legend>
+					<div id="design-development">
+						<h3>Архитектурные решения</h3>
+						<ul>
+							<li>
+								<span>1.Планы и разрезы</span>
+								<input type="checkbox">
+								<span>5 000 руб.</span>
+							</li>
+							<li>
+								<span>2.Фасады и виды</span>
+								<input type="checkbox">
+								<span>5 000 руб.</span>
+							</li>
+							<li>
+								<span>3.План кровли</span>
+								<input type="checkbox">
+								<span>2 000 руб.</span>
+							</li>
+							<li>
+								<span>4.План маркировочный</span>
+								<input type="checkbox">
+								<span>3 000 руб.</span>
+							</li>
+							<li>
+								<span>5.Ведомость оконных и дверных проемов</span>
+								<input type="checkbox">
+								<span>3 000 руб.</span>
+							</li>
+							<li>
+								<span>6.План участка</span>
+								<input type="checkbox">
+								<span>2 000 руб.</span>
+							</li>
+							<li>
+								<span>7.План расстановки мебели</span>
+								<input type="checkbox">
+								<span>3 000 руб.</span>
+							</li>
+						</ul>
+						<div class="calc subtotal">
+							<span>Итого</span>
+							<span>15 000 руб.</span>
+						</div>
+						<h3>Конструктивные решения</h3>
+						<ul>
+							<li>
+								<span>1.План опорной плоскости фундаментов</span>
+								<input type="checkbox">
+								<span>1 000 руб.</span>
+							</li>
+							<li>
+								<span>2.План конструкций</span>
+							</li>
+							<li>
+								<span>3.План укладки венца 0 и 1</span>
+							</li>
+							<li>
+								<span>5.Раскрой, спецификация стеновых элементов</span>
+							</li>
+							<li>
+								<span>6.Развертки стен</span>
+								<input type="checkbox">
+								<span>10 000 руб.</span>
+							</li>
+							<li>
+								<span>7.Каналы для скрытой проводки кабелей</span>
+								<input type="checkbox">
+								<span>5 000 руб.</span>
+							</li>
+							<li>
+								<span>8.План укладки балок. Спецификация</span>
+								<input type="checkbox">
+								<span>1 500 руб.</span>
+							</li>
+							<li>
+								<span>9.План стропил. Спецификация</span>
+								<input type="checkbox">
+								<span>3 000 руб.</span>
+							</li>
+						</ul>
+						<div class="calc subtotal">
+							<span>Итого</span>
+							<span>15 000 руб.</span>
+						</div>
+						<h3>Электроснабжение и освещение</h3>
+						<ul>
+							<li>
+								<span>8.План розеток и выключателей</span>
+								<input type="checkbox">
+								<span>3 000 руб.</span>
+							</li>
+							<div class="calc subtotal">
+								<span>Итого</span>
+								<span>15 000 руб.</span>
+							</div>
+						</ul>
+					</div>
+					<div class="calc subtotal">
+						<span>ВСЕГО</span>
+						<span>15 000 руб.</span>
+					</div>
+				</fieldset>
+				<fieldset id="house-construction">
+					<legend>
+						<h2>Строительство</h2>
+					</legend>
+				</fieldset>
+			</section>		
 		</div>
 	</main>
 
@@ -70,6 +195,6 @@
 		</div>
 	</footer>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-	<script type="text/javascript" src="javascripts/catalog.js"></script>
+	<script type="text/javascript" src="javascripts/price_calc.js"></script>
 </body>
 </html>
