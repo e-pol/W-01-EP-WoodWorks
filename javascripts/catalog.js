@@ -46,11 +46,7 @@
 		var newCatalogHtml = createCatalogHtml(newCatalog, containerId);
 		
 		renewCatalogHtml(newCatalogHtml, containerId);
-		
-		/*console.group();
-			console.table(newFiltersCache);
-			console.table(newCatalog);
-		console.groupEnd();*/
+
 	}
 
 	function createFiltersCache(filters) {
@@ -87,8 +83,8 @@
 			var itemContainerEl = document.createElement("div");
 			itemContainerEl.id = catalogItem.id;
 
-			var designStatus = "Рабочий";
-			var statusBuilt = "Построен 2015г.";
+			var designStatus = "Рабочий";         // change
+			var statusBuilt = "Построен 2015г.";  // change
 
 			var aEl = document.createElement("a");
 			aEl.href = "#";
@@ -171,7 +167,6 @@
 				switch(firedId) {
 					
 					case "type-house":
-					// setFilter(property, sign, "\"house\"");
 					setFilter('type', '!==', '"house"');
 					renewCatalog(catalog, catalogFilters, containerId);
 					break;
